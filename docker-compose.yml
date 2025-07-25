@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  db:
+    image: pokemon_postgres
+    build: ./sql
+    container_name: pokemon_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=pokemon
+      - POSTGRES_DB=app
+    restart: on-failure
+  ws:
+    image: ws_pokemon
+    build: ./ws
+    container_name: ws_pokemon
+    ports: 
+      - 80:80
+    environment:
+      - PASSWORD=pokemon
+      - HOST=db
+      - PORT=5432
+      - DATABASE=app
+      - USER=app
+    restart: on-failure
+    depends_on :
+      - db

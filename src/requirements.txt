@@ -1,0 +1,7 @@
+psycopg2_binary
+lxml
+requests
+fastapi
+python-dotenv
+starlette
+uvicorn

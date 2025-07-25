@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD azerty
+ENV POSTGRES_DB postgres
+
+COPY init_db.sql /docker-entrypoint-initdb.d/

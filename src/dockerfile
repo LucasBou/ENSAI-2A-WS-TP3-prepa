@@ -1,0 +1,15 @@
+FROM python:alpine
+
+COPY requirements.txt ./
+
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+ENV PASSWORD=1234
+ENV HOST=localhost
+ENV PORT=5432
+ENV DATABASE=pokemon
+ENV USER=app
+
+ENTRYPOINT ["python3", "main.py"]
