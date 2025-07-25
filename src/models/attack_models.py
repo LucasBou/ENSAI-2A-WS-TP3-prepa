@@ -24,7 +24,7 @@ class AttackModelIn(BaseModel):
     The output model.
     """
     name: str
-    id: int
+    id: Optional[int] = None
     attack_type: TypeAttackNameModel
     power: Optional[int] = None
     accuracy: Optional[int] = None
